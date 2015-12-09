@@ -13,7 +13,21 @@ public class Store  implements Serializable{
         private String Email;
         private static int StoreIDCounter = 0;
 
+    public Store(Store s){
+        StoreID = s.StoreID;
+        StoreName = s.StoreName;
+        StoreAddress = s.StoreAddress;
+        TelephoneNumber = s.TelephoneNumber;
+        Email = s.Email;
+    }
 
+    public Store(long storeID, String storeName, String storeAddress, String telephoneNumber, String email) {
+        StoreID = storeID;
+        StoreName = storeName;
+        StoreAddress = storeAddress;
+        TelephoneNumber = telephoneNumber;
+        Email = email;
+    }
 
     public static int getStoreIDCounter() {
         return StoreIDCounter;
