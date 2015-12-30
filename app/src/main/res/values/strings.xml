@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Book Store</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_add_user">addUserActivity</string>
+    <string name="title_activity_nav_drwr">navDrwrActivity</string>
+    <string name="birthday">Birthday :</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_book">BookActivity</string>
 </resources>
