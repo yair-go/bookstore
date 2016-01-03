@@ -43,8 +43,17 @@ public class BookActivity extends AppCompatActivity {
             }
         });
         final Backend backend = BackendFactory.getInstance(this);
-
+        // TODO:
+        // VERSION 1& 3
+        try {
+            booksArrayList = backend.getBooksList();
+        } catch (Exception e) {
+            Toast.makeText(BookActivity.this, "catch error", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
         /********************************************************************************************/
+        //TODO:
+//        //VERSION 2
 //        new AsyncTask<Void, Void,  ArrayList<Book>>() {
 //            @Override
 //            protected ArrayList<Book> doInBackground(Void... voids) {
@@ -68,17 +77,12 @@ public class BookActivity extends AppCompatActivity {
 //        }.execute();
         /***************************************************************************************/
 
-//        try {
-//            ArrayList<Book> booksArrayList = backend.getBooksList();
-//        } catch (Exception e) {
-//            Toast.makeText(BookActivity.this, "catch error", Toast.LENGTH_LONG).show();
-//            e.printStackTrace();
-//        }
 
-         booksArrayList = backend.getBooks();
+
+//         booksArrayList = backend.getBooksList();
         /////////////////////////////////////////////////////////////////////////////////////////////
-        booksArrayList.add(new Book(3,"aaa"));
-        booksArrayList.add(new Book(4,"bbb"));
+//        booksArrayList.add(new Book(3,"aaa"));
+//        booksArrayList.add(new Book(4,"bbb"));
           initBookByListView();
     }
 

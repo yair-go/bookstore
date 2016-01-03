@@ -35,7 +35,7 @@ public class DatabaseMySQL implements Backend {
     }
 
     //TODO:
-    //VERSION
+    //VERSION 1
     public void setBooksList()
     {
         try {
@@ -78,45 +78,15 @@ public class DatabaseMySQL implements Backend {
     }
     @Override
     public ArrayList<Book> getBooksList() throws Exception {
-        final ArrayList<Book> BooksList = new ArrayList<Book>();
-        try {
-            new AsyncTask<Void, Void,  ArrayList<Book>>() {
-                @Override
-                protected  ArrayList<Book> doInBackground(Void... voids) {
-                    try {
-                        Book tempBook;
-                        JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php")).getJSONArray("books");
-                        for (int i = 0; i < books.length(); i++) {
-                            tempBook = new Book();
-                            tempBook.setBookID(books.getJSONObject(i).getInt("book_id"));
-                            tempBook.setBookName(books.getJSONObject(i).getString("book_name"));
-                            BooksList.add(tempBook);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return BooksList;
-                }
-                @Override
-                protected void onPreExecute() {
-                }
 
-                @Override
-                protected void onPostExecute(ArrayList<Book> books) {
-
-                }
-            }.execute().get();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
         return BooksList;
 
         /*************************************************************************************/
+//        final ArrayList<Book> BooksList = new ArrayList<Book>();
         // TODO :
         //VERSION 2
         //
+
 //        Book tempBook;
 //        JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php")).getJSONArray("books");
 //        for (int i = 0; i < books.length(); i++) {
@@ -127,6 +97,42 @@ public class DatabaseMySQL implements Backend {
 //        }
 //        return BooksList;
         /*************************************************************************************/
+        //TODO:
+//        VERSION 3
+//        try {
+//            new AsyncTask<Void, Void,  ArrayList<Book>>() {
+//                @Override
+//                protected  ArrayList<Book> doInBackground(Void... voids) {
+//                    try {
+//                        Book tempBook;
+//                        JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php")).getJSONArray("books");
+//                        for (int i = 0; i < books.length(); i++) {
+//                            tempBook = new Book();
+//                            tempBook.setBookID(books.getJSONObject(i).getInt("book_id"));
+//                            tempBook.setBookName(books.getJSONObject(i).getString("book_name"));
+//                            BooksList.add(tempBook);
+//                        }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                    return BooksList;
+//                }
+//                @Override
+//                protected void onPreExecute() {
+//                }
+//
+//                @Override
+//                protected void onPostExecute(ArrayList<Book> books) {
+//
+//                }
+//            }.execute().get();
+//        }
+//        catch (Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//        return BooksList;
+
     }
 
     @Override
