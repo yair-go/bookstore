@@ -21,6 +21,11 @@ public class DatabaseSqlite implements Backend {
     }
 
     @Override
+    public void setBooksList() {
+
+    }
+
+    @Override
     public ArrayList<Book> getBooks() {
         return null;
     }

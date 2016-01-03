@@ -45,29 +45,29 @@ public class BookActivity extends AppCompatActivity {
         final Backend backend = BackendFactory.getInstance(this);
 
         /********************************************************************************************/
-        new AsyncTask<Void, Void,  ArrayList<Book>>() {
-            @Override
-            protected ArrayList<Book> doInBackground(Void... voids) {
-                try {
-                    return backend.getBooksList();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-
-            @Override
-            protected void onPreExecute() {
-            }
-
-            @Override
-            protected void onPostExecute(ArrayList<Book> abooks) {
-                booksArrayList = abooks;
-                initBookByListView();
-            }
-        }.execute();
-        /***************************************************************************************/
+//        new AsyncTask<Void, Void,  ArrayList<Book>>() {
+//            @Override
+//            protected ArrayList<Book> doInBackground(Void... voids) {
+//                try {
+//                    return backend.getBooksList();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//                return null;
+//            }
 //
+//            @Override
+//            protected void onPreExecute() {
+//            }
+//
+//            @Override
+//            protected void onPostExecute(ArrayList<Book> abooks) {
+//                booksArrayList = abooks;
+//                initBookByListView();
+//            }
+//        }.execute();
+        /***************************************************************************************/
+
 //        try {
 //            ArrayList<Book> booksArrayList = backend.getBooksList();
 //        } catch (Exception e) {
@@ -75,6 +75,7 @@ public class BookActivity extends AppCompatActivity {
 //            e.printStackTrace();
 //        }
 
+         booksArrayList = backend.getBooks();
         /////////////////////////////////////////////////////////////////////////////////////////////
         booksArrayList.add(new Book(3,"aaa"));
         booksArrayList.add(new Book(4,"bbb"));

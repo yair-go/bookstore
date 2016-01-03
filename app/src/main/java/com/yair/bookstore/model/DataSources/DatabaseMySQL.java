@@ -34,6 +34,44 @@ public class DatabaseMySQL implements Backend {
 
     }
 
+    //TODO:
+    //VERSION
+    public void setBooksList()
+    {
+        try {
+            new AsyncTask<Void, Void,  ArrayList<Book>>() {
+                @Override
+                protected  ArrayList<Book> doInBackground(Void... voids) {
+                    try {
+                        Book tempBook;
+                        JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php")).getJSONArray("books");
+                        for (int i = 0; i < books.length(); i++) {
+                            tempBook = new Book();
+                            tempBook.setBookID(books.getJSONObject(i).getInt("book_id"));
+                            tempBook.setBookName(books.getJSONObject(i).getString("book_name"));
+                            BooksList.add(tempBook);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return BooksList;
+                }
+                @Override
+                protected void onPreExecute() {
+                }
+
+                @Override
+                protected void onPostExecute(ArrayList<Book> books) {
+
+                }
+            }.execute().get();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
     public ArrayList<Book> getBooks()
     {
         return BooksList;
@@ -41,50 +79,53 @@ public class DatabaseMySQL implements Backend {
     @Override
     public ArrayList<Book> getBooksList() throws Exception {
         final ArrayList<Book> BooksList = new ArrayList<Book>();
-//        try {
-//            new AsyncTask<Void, Void,  ArrayList<Book>>() {
-//                @Override
-//                protected  ArrayList<Book> doInBackground(Void... voids) {
-//                    try {
-//                        Book tempBook;
-//                        JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php")).getJSONArray("books");
-//                        for (int i = 0; i < books.length(); i++) {
-//                            tempBook = new Book();
-//                            tempBook.setBookID(books.getJSONObject(i).getInt("book_id"));
-//                            tempBook.setBookName(books.getJSONObject(i).getString("book_name"));
-//                            BooksList.add(tempBook);
-//                        }
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//                    return BooksList;
-//                }
-//                @Override
-//                protected void onPreExecute() {
-//                }
-//
-//                @Override
-//                protected void onPostExecute(ArrayList<Book> books) {
-//
-//                }
-//            }.execute().get();
-//        }
-//        catch (Exception e)
-//        {
-//            e.printStackTrace();
-//        }
-//        return BooksList;
+        try {
+            new AsyncTask<Void, Void,  ArrayList<Book>>() {
+                @Override
+                protected  ArrayList<Book> doInBackground(Void... voids) {
+                    try {
+                        Book tempBook;
+                        JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php")).getJSONArray("books");
+                        for (int i = 0; i < books.length(); i++) {
+                            tempBook = new Book();
+                            tempBook.setBookID(books.getJSONObject(i).getInt("book_id"));
+                            tempBook.setBookName(books.getJSONObject(i).getString("book_name"));
+                            BooksList.add(tempBook);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return BooksList;
+                }
+                @Override
+                protected void onPreExecute() {
+                }
 
-        /*************************************************************************************/
-        Book tempBook;
-        JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php")).getJSONArray("books");
-        for (int i = 0; i < books.length(); i++) {
-            tempBook = new Book();
-            tempBook.setBookID(books.getJSONObject(i).getInt("book_id"));
-            tempBook.setBookName(books.getJSONObject(i).getString("book_name"));
-            BooksList.add(tempBook);
+                @Override
+                protected void onPostExecute(ArrayList<Book> books) {
+
+                }
+            }.execute().get();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
         }
         return BooksList;
+
+        /*************************************************************************************/
+        // TODO :
+        //VERSION 2
+        //
+//        Book tempBook;
+//        JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php")).getJSONArray("books");
+//        for (int i = 0; i < books.length(); i++) {
+//            tempBook = new Book();
+//            tempBook.setBookID(books.getJSONObject(i).getInt("book_id"));
+//            tempBook.setBookName(books.getJSONObject(i).getString("book_name"));
+//            BooksList.add(tempBook);
+//        }
+//        return BooksList;
         /*************************************************************************************/
     }
 

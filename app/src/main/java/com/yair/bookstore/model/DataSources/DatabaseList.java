@@ -27,8 +27,14 @@ public class DatabaseList implements Backend {
     }
 
     @Override
+    public void setBooksList() {
+        BooksList.add(new Book(3,"aaa"));
+        BooksList.add(new Book(4,"bbb"));
+    }
+
+    @Override
     public ArrayList<Book> getBooks() {
-        return null;
+        return books;
     }
 
     @Override

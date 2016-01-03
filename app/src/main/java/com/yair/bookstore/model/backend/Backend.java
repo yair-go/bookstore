@@ -11,6 +11,7 @@ public interface  Backend {
 
     final ArrayList<Book> BooksList = new ArrayList<Book>();
     void addBook(Book book);
+    public void setBooksList();
     public ArrayList<Book> getBooks();
     public ArrayList<Book> getBooksList() throws Exception;
     public ArrayList<Book> getBooksList(int book_id) throws Exception;

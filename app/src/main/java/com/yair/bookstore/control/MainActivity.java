@@ -1,4 +1,4 @@
-package com.yair.bookstore;
+package com.yair.bookstore.control;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import com.yair.bookstore.control.addUserActivity;
+import com.yair.bookstore.R;
+import com.yair.bookstore.model.DataSources.BackendFactory;
+import com.yair.bookstore.model.backend.Backend;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
                                         }
         );
+        final Backend backend = BackendFactory.getInstance(this);
+        backend.setBooksList();
 
     }
 
