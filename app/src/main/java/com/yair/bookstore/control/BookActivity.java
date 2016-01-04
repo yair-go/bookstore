@@ -76,10 +76,6 @@ public class BookActivity extends AppCompatActivity {
 //            }
 //        }.execute();
         /***************************************************************************************/
-
-
-
-//         booksArrayList = backend.getBooksList();
         /////////////////////////////////////////////////////////////////////////////////////////////
 //        booksArrayList.add(new Book(3,"aaa"));
 //        booksArrayList.add(new Book(4,"bbb"));

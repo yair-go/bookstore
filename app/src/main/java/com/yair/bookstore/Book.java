@@ -7,6 +7,7 @@ public class Book {
 
        private int _id;
     private String _name;
+    private int _price;
     private int image;
 
     public Book() {
@@ -49,4 +50,13 @@ public class Book {
     public void setBookName(String bookName) {
         this._name = bookName;
     }
+
+    public int get_price() {
+        return _price;
+    }
+
+    public void set_price(int _price) {
+        this._price = _price;
+    }
+
 }

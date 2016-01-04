@@ -2,6 +2,7 @@ package com.yair.bookstore.model.backend;
 
 import com.yair.bookstore.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 public interface  Backend {
 
     final ArrayList<Book> BooksList = new ArrayList<Book>();
-    void addBook(Book book);
+    void addBook(Book book) throws IOException;
     public void setBooksList();
     public ArrayList<Book> getBooks();
     public ArrayList<Book> getBooksList() throws Exception;
