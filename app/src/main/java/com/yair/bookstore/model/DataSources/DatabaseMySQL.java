@@ -65,6 +65,7 @@ public class DatabaseMySQL implements Backend {
     //VERSION 1
     public void setBooksList()
     {
+        BooksList.clear();
         try {
             new AsyncTask<Void, Void,  ArrayList<Book>>() {
                 @Override
