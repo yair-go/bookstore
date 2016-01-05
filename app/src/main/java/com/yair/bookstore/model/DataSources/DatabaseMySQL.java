@@ -36,6 +36,7 @@ public class DatabaseMySQL implements Backend {
 
     @Override
     public void addBook(final Book book) throws IOException {
+        BooksList.add(book);
         try{
             new AsyncTask< Void,Void,Void>() {
                 @SafeVarargs
@@ -43,7 +44,7 @@ public class DatabaseMySQL implements Backend {
                 protected final Void doInBackground(Void... params) {
                     Map<String,Object> _params = new LinkedHashMap<>();
                     _params.put("book_id",book.get_id());
-                    _params.put("Book_name", book.get_name());
+                    _params.put("book_name", book.get_name());
                     _params.put("book_price", book.get_price());
                     try {
                         POST(Const.web_url + "addBook.php", _params);

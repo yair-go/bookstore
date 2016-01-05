@@ -8,4 +8,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_book">BookActivity</string>
+    <string name="title_activity_add_book">addBookActivity</string>
+    <string name="book_name">Book Name :</string>
+    <string name="book_price">Book Price :</string>
 </resources>

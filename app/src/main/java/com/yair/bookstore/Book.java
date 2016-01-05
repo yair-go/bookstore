@@ -11,6 +11,7 @@ public class Book {
     private int image;
 
     public Book() {
+        this._id = 1;
     }
 
 

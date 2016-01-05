@@ -70,4 +70,9 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void addBookActivityClicked(View view) {
+        Intent intent = new Intent(this,addBookActivity.class);
+        startActivity(intent);
+    }
 }

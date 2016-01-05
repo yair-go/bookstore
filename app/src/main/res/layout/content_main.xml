@@ -22,4 +22,15 @@
         android:layout_toRightOf="@+id/textView"
         android:layout_toEndOf="@+id/textView"
         />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Book Activity"
+        android:id="@+id/addBookActbutton"
+        android:layout_below="@+id/signUpButton"
+        android:layout_alignLeft="@+id/signUpButton"
+        android:layout_alignStart="@+id/signUpButton"
+        android:layout_marginTop="41dp"
+        android:onClick="addBookActivityClicked"/>
 </RelativeLayout>
