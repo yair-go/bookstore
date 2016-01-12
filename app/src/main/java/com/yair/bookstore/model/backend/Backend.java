@@ -1,6 +1,7 @@
 package com.yair.bookstore.model.backend;
 
 import com.yair.bookstore.*;
+import com.yair.bookstore.model.MyActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,4 +17,6 @@ public interface  Backend {
     public ArrayList<Book> getBooks();
     public ArrayList<Book> getBooksList() throws Exception;
     public ArrayList<Book> getBooksList(int book_id) throws Exception;
+
+    ArrayList<Book> getBooksList(MyActivity a, int book_id) throws Exception;
 }

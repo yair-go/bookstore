@@ -17,6 +17,7 @@ import com.yair.bookstore.Book;
 import com.yair.bookstore.R;
 import com.yair.bookstore.model.Const;
 import com.yair.bookstore.model.DataSources.BackendFactory;
+import com.yair.bookstore.model.MyActivity;
 import com.yair.bookstore.model.backend.Backend;
 
 import org.json.JSONArray;
@@ -24,7 +25,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class BookActivity extends AppCompatActivity {
+public class BookActivity extends AppCompatActivity implements MyActivity{
 
     ArrayList<Book> booksArrayList = new ArrayList<Book>();
     @Override
@@ -80,6 +81,11 @@ public class BookActivity extends AppCompatActivity {
 //        booksArrayList.add(new Book(3,"aaa"));
 //        booksArrayList.add(new Book(4,"bbb"));
           initBookByListView();
+//        try {
+//            booksArrayList = backend.getBooksList(this,2);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     void initBookByListView()
@@ -112,6 +118,11 @@ public class BookActivity extends AppCompatActivity {
         };
         listView.setAdapter(adapter);
         this.setContentView(listView);
+    }
+
+    @Override
+    public void Refresh() {
+        initBookByListView();
     }
 //    public static void initBookByListView(ArrayList<Book> booksArrayList)
 //    {

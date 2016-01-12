@@ -6,6 +6,7 @@ import com.yair.bookstore.Book;
 
 import java.util.ArrayList;
 
+import com.yair.bookstore.model.MyActivity;
 import com.yair.bookstore.model.backend.Backend;
 
 /**
@@ -37,6 +38,11 @@ public class DatabaseSqlite implements Backend {
 
     @Override
     public ArrayList<Book> getBooksList(int book_id) throws Exception {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Book> getBooksList(MyActivity a, int book_id) throws Exception {
         return null;
     }
 }

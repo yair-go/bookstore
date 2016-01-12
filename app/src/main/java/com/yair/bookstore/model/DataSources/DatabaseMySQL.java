@@ -1,5 +1,6 @@
 package com.yair.bookstore.model.DataSources;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -23,6 +24,7 @@ import java.util.Map;
 
 import com.yair.bookstore.control.BookActivity;
 import com.yair.bookstore.model.Const;
+import com.yair.bookstore.model.MyActivity;
 import com.yair.bookstore.model.backend.Backend;
 
 /**
@@ -36,6 +38,8 @@ public class DatabaseMySQL implements Backend {
 
     @Override
     public void addBook(final Book book) throws IOException {
+//        DatabaseList DBList = new DatabaseList();
+//        DBList.addBook();
         BooksList.add(book);
         try{
             new AsyncTask< Void,Void,Void>() {
@@ -165,13 +169,21 @@ public class DatabaseMySQL implements Backend {
     }
 
     @Override
-    public ArrayList<Book> getBooksList(final int book_id) throws Exception {
+    public ArrayList<Book> getBooksList(int book_id) throws Exception {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Book> getBooksList(final MyActivity a, final int book_id) throws Exception {
 //        final ArrayList<Book> BooksList = new ArrayList<Book>();
 
         try {
-            new AsyncTask<Void, Void,  ArrayList<Book>>() {
+            new AsyncTask<MyActivity, Void,  ArrayList<Book>>() {
+
+                public MyActivity activity;
                 @Override
-                protected  ArrayList<Book> doInBackground(Void... voids) {
+                protected  ArrayList<Book> doInBackground(MyActivity... a) {
+                    this.activity = a[0];
                     try {
                         Book tempBook;
                         JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php" + "?book_id="+book_id)).getJSONArray("books");
@@ -193,8 +205,9 @@ public class DatabaseMySQL implements Backend {
                 @Override
                 protected void onPostExecute(ArrayList<Book> myBooksList) {
                   //  return myBooksList;
+                    activity.Refresh();
                 }
-            }.execute();
+            }.execute(a);
         }
         catch (Exception e)
         {
