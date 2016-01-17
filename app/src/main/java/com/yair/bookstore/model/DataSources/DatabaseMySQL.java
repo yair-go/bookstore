@@ -66,8 +66,7 @@ public class DatabaseMySQL implements Backend {
         }
     }
 
-    //TODO:
-    //VERSION 1
+    //TODO: VERSION 1
     public void setBooksList()
     {
         BooksList.clear();
@@ -111,14 +110,12 @@ public class DatabaseMySQL implements Backend {
     }
     @Override
     public ArrayList<Book> getBooksList() throws Exception {
-//TODO:
-// VERSION 1
+//TODO:VERSION 1
         return BooksList;
 
         /*************************************************************************************/
 //        final ArrayList<Book> BooksList = new ArrayList<Book>();
-        // TODO :
-        //VERSION 2
+        // TODO :VERSION 2
         //
 
 //        Book tempBook;
@@ -131,8 +128,7 @@ public class DatabaseMySQL implements Backend {
 //        }
 //        return BooksList;
         /*************************************************************************************/
-        //TODO:
-//        VERSION 3
+        //TODO:VERSION 3
 //        try {
 //            new AsyncTask<Void, Void,  ArrayList<Book>>() {
 //                @Override
