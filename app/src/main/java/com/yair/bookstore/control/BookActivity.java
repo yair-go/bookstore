@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -81,6 +82,7 @@ public class BookActivity extends AppCompatActivity implements MyActivity{
 //        booksArrayList.add(new Book(3,"aaa"));
 //        booksArrayList.add(new Book(4,"bbb"));
           initBookByListView();
+        //TODO: VERSION4
 //        try {
 //            booksArrayList = backend.getBooksList(this,2);
 //        } catch (Exception e) {
@@ -91,7 +93,7 @@ public class BookActivity extends AppCompatActivity implements MyActivity{
     void initBookByListView()
     {
         ListView listView = new ListView(this);
-
+//        ListView listView = (ListView) findViewById(R.id.booksListView);
         ArrayAdapter<Book> adapter = new ArrayAdapter<Book>(this,
                 R.layout.row_book, booksArrayList)
         {
@@ -118,8 +120,26 @@ public class BookActivity extends AppCompatActivity implements MyActivity{
         };
         listView.setAdapter(adapter);
         this.setContentView(listView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String value = (String)parent.getItemAtPosition(position).toString();
+                Toast.makeText(parent.getContext() , value, Toast.LENGTH_SHORT).show();
+            }
+        });
+//        listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(parent.getContext() , "hhhhhh", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
     }
-
+    //TODO: VERSION4
     @Override
     public void Refresh() {
         initBookByListView();

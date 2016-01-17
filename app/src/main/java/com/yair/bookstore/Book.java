@@ -60,4 +60,8 @@ public class Book {
         this._price = _price;
     }
 
+    @Override
+    public String toString() {
+        return this._name;
+    }
 }

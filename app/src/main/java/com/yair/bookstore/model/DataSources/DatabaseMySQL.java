@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import com.yair.bookstore.R;
 import com.yair.bookstore.control.BookActivity;
 import com.yair.bookstore.model.Const;
 import com.yair.bookstore.model.MyActivity;
@@ -38,8 +39,8 @@ public class DatabaseMySQL implements Backend {
 
     @Override
     public void addBook(final Book book) throws IOException {
-//        DatabaseList DBList = new DatabaseList();
-//        DBList.addBook();
+//      DatabaseList DBList = new DatabaseList();
+//        DBList.addBook(book);
         BooksList.add(book);
         try{
             new AsyncTask< Void,Void,Void>() {
@@ -51,7 +52,7 @@ public class DatabaseMySQL implements Backend {
                     _params.put("book_name", book.get_name());
                     _params.put("book_price", book.get_price());
                     try {
-                        POST(Const.web_url + "addBook.php", _params);
+                        POST(R.string.web_url + "addBook.php", _params);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -76,7 +77,7 @@ public class DatabaseMySQL implements Backend {
                 protected  ArrayList<Book> doInBackground(Void... voids) {
                     try {
                         Book tempBook;
-                        JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php")).getJSONArray("books");
+                        JSONArray books = new JSONObject(GET(R.string.web_url + "getBooksList.php")).getJSONArray("books");
                         for (int i = 0; i < books.length(); i++) {
                             tempBook = new Book();
                             tempBook.setBookID(books.getJSONObject(i).getInt("book_id"));
@@ -172,9 +173,9 @@ public class DatabaseMySQL implements Backend {
     public ArrayList<Book> getBooksList(int book_id) throws Exception {
         return null;
     }
-
+    //TODO: VERSION4
     @Override
-    public ArrayList<Book> getBooksList(final MyActivity a, final int book_id) throws Exception {
+    public ArrayList<Book> getBooksList( final MyActivity a, final int book_id) throws Exception {
 //        final ArrayList<Book> BooksList = new ArrayList<Book>();
 
         try {
@@ -186,7 +187,7 @@ public class DatabaseMySQL implements Backend {
                     this.activity = a[0];
                     try {
                         Book tempBook;
-                        JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php" + "?book_id="+book_id)).getJSONArray("books");
+                        JSONArray books = new JSONObject(GET(R.string.web_url + "getBooksList.php" + "?book_id="+book_id)).getJSONArray("books");
                         for (int i = 0; i < books.length(); i++) {
                             tempBook = new Book();
                             tempBook.setBookID(books.getJSONObject(i).getInt("book_id"));
@@ -205,7 +206,7 @@ public class DatabaseMySQL implements Backend {
                 @Override
                 protected void onPostExecute(ArrayList<Book> myBooksList) {
                   //  return myBooksList;
-                    activity.Refresh();
+                    a.Refresh();
                 }
             }.execute(a);
         }
