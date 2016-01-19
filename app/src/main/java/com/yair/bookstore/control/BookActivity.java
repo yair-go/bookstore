@@ -93,7 +93,10 @@ public class BookActivity extends AppCompatActivity implements MyActivity{
     void initBookByListView()
     {
         ListView listView = new ListView(this);
-//        ListView listView = (ListView) findViewById(R.id.booksListView);
+        listView.setLayoutParams(new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
+//       ListView listView = (ListView) findViewById(R.id.booksListView);
         ArrayAdapter<Book> adapter = new ArrayAdapter<Book>(this,
                 R.layout.row_book, booksArrayList)
         {
