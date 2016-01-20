@@ -76,7 +76,7 @@ public class DatabaseMySQL implements Backend {
                 protected  ArrayList<Book> doInBackground(Void... voids) {
                     try {
                         Book tempBook;
-                        JSONArray books = new JSONObject(GET(R.string.web_url + "getBooksList.php")).getJSONArray("books");
+                        JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php")).getJSONArray("books");
                         for (int i = 0; i < books.length(); i++) {
                             tempBook = new Book();
                             tempBook.setBookID(books.getJSONObject(i).getInt("book_id"));

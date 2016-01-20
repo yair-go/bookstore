@@ -94,8 +94,8 @@ public class BookActivity extends AppCompatActivity implements MyActivity{
     {
         ListView listView = new ListView(this);
         listView.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT));
 //       ListView listView = (ListView) findViewById(R.id.booksListView);
         ArrayAdapter<Book> adapter = new ArrayAdapter<Book>(this,
                 R.layout.row_book, booksArrayList)
