@@ -42,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
                                         }
         );
-        //TODO:
-        // VERSION 1
+        //TODO: VERSION 1
         final Backend backend = BackendFactory.getInstance(this);
         backend.setBooksList();
 
