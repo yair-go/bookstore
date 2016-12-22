@@ -30,6 +30,17 @@ public class User {
         return _id;
     }
 
+    public void set_birthday(String date)
+    {
 
+    }
+    public void set_birthday(int year, int monthOfYear, int dayOfMonth)
+    {
+        _birthday.set(year, monthOfYear, dayOfMonth);
+    }
+    public String toString()
+    {
+        return "my name is " + _name;
+    }
 
 }

@@ -37,6 +37,7 @@ public class addUserActivity extends ActionBarActivity {
 //        registerSellerTextView = (TextView) findViewById(R.id.register_as_seller);
 //        userStatusTextView = (TextView) findViewById(R.id.user_status_text);
 //        userType = UserType.USER;
+        Intent intent = getIntent();
 
         dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
 

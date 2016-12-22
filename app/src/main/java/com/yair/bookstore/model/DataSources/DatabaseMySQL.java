@@ -118,15 +118,16 @@ public class DatabaseMySQL implements Backend {
         // TODO :VERSION 2
         //
 
-//        Book tempBook;
-//        JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php")).getJSONArray("books");
-//        for (int i = 0; i < books.length(); i++) {
-//            tempBook = new Book();
-//            tempBook.setBookID(books.getJSONObject(i).getInt("book_id"));
-//            tempBook.setBookName(books.getJSONObject(i).getString("book_name"));
-//            BooksList.add(tempBook);
-//        }
-//        return BooksList;
+       Book tempBook;
+        JSONArray books = new JSONObject(GET(Const.web_url + "getBooksList.php")).getJSONArray("books");
+        for (int i = 0; i < books.length(); i++) {
+            tempBook = new Book();
+            tempBook.setBookID(books.getJSONObject(i).getInt("book_id"));
+            tempBook.setBookName(books.getJSONObject(i).getString("book_name"));
+            tempBook.set_price(books.getJSONObject(i).getString("price"));
+            BooksList.add(tempBook);
+        }
+        return BooksList;
         /*************************************************************************************/
         //TODO:VERSION 3
 //        try {
@@ -175,7 +176,7 @@ public class DatabaseMySQL implements Backend {
 //        final ArrayList<Book> BooksList = new ArrayList<Book>();
 
         try {
-            new AsyncTask<MyActivity, Void,  ArrayList<Book>>() {
+            new AsyncTask<MyActivity, Integer,  ArrayList<Book>>() {
 
                 public MyActivity activity;
                 @Override
@@ -189,6 +190,10 @@ public class DatabaseMySQL implements Backend {
                             tempBook.setBookID(books.getJSONObject(i).getInt("book_id"));
                             tempBook.setBookName(books.getJSONObject(i).getString("book_name"));
                             BooksList.add(tempBook);
+                            if (isCancelled())
+                            {
+                                return null;
+                            }
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -200,9 +205,14 @@ public class DatabaseMySQL implements Backend {
                 }
 
                 @Override
+                protected void onProgressUpdate(Integer... values) {
+                    super.onProgressUpdate(values);
+                }
+
+                @Override
                 protected void onPostExecute(ArrayList<Book> myBooksList) {
-                  //  return myBooksList;
-                    a.Refresh();
+
+                    a.RefreshActivity();
                 }
             }.execute(a);
         }

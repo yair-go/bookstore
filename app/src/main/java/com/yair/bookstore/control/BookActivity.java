@@ -47,40 +47,39 @@ public class BookActivity extends AppCompatActivity implements MyActivity{
         final Backend backend = BackendFactory.getInstance(this);
         // TODO:
         // VERSION 1& 3
-        try {
-            booksArrayList = backend.getBooksList();
-        } catch (Exception e) {
-            Toast.makeText(BookActivity.this, "catch error", Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
+//        try {
+//            booksArrayList = backend.getBooksList();
+//        } catch (Exception e) {
+//            Toast.makeText(BookActivity.this, "catch error", Toast.LENGTH_LONG).show();
+//            e.printStackTrace();
+//        }
         /********************************************************************************************/
-        //TODO:
-//        //VERSION 2
-//        new AsyncTask<Void, Void,  ArrayList<Book>>() {
-//            @Override
-//            protected ArrayList<Book> doInBackground(Void... voids) {
-//                try {
-//                    return backend.getBooksList();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//                return null;
-//            }
+        //TODO:  VERSION 2
+       new AsyncTask<Void, Void,  ArrayList<Book>>() {
+          @Override
+           protected ArrayList<Book> doInBackground(Void... voids) {
+               try {
+                    return backend.getBooksList();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
 //
 //            @Override
 //            protected void onPreExecute() {
 //            }
 //
 //            @Override
-//            protected void onPostExecute(ArrayList<Book> abooks) {
-//                booksArrayList = abooks;
-//                initBookByListView();
-//            }
-//        }.execute();
+            protected void onPostExecute(ArrayList<Book> abooks) {
+                booksArrayList = abooks;
+                initBookByListView();
+            }
+        }.execute();
         /***************************************************************************************/
         /////////////////////////////////////////////////////////////////////////////////////////////
-//        booksArrayList.add(new Book(3,"aaa"));
-//        booksArrayList.add(new Book(4,"bbb"));
+        booksArrayList.add(new Book(3,"aaa"));
+        booksArrayList.add(new Book(4,"bbb"));
           initBookByListView();
         //TODO: VERSION4
 //        try {
@@ -144,7 +143,7 @@ public class BookActivity extends AppCompatActivity implements MyActivity{
     }
     //TODO: VERSION4
     @Override
-    public void Refresh() {
+    public void RefreshActivity() {
         initBookByListView();
     }
 //    public static void initBookByListView(ArrayList<Book> booksArrayList)

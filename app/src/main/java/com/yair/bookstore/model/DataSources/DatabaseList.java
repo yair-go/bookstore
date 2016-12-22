@@ -16,7 +16,7 @@ public class DatabaseList implements Backend {
 
 
     ArrayList<Book> books = new ArrayList<Book>();
-
+    ArrayList<customer> customers= new ArrayList<customer>();
 
     public DatabaseList(Context context) {
     }

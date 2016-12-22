@@ -10,7 +10,7 @@ import java.lang.String;import com.yair.bookstore.model.backend.Backend;
 public class BackendFactory {
     static Backend instance = null;
 
-    public static String mode = "mysql";
+    public static String mode = "lists";
 
     public final static Backend getInstance(Context context)
     {
